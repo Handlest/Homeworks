@@ -1,0 +1,13 @@
+#include <iostream>
+
+int main() {
+    int amount;
+    std::cout << "Enter the amount of rows(less than 25)" << "\n";
+    std::cin >> amount;
+    for (int i = 0; i < amount; ++i) {
+        for (int q = 0; q <= i; ++q) {
+            std::cout << "*";
+        }
+        std::cout << "\n";
+    }
+}
