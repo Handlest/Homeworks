@@ -1,0 +1,27 @@
+#include <iostream>
+using std::cout;
+using std::cin;
+using std::endl;
+int main() {
+    int height;
+    cout << "Enter half of the height rhombus\n";
+    cin >> height;
+    for (int i = 0; i < height; ++i){
+        for (int j = 1; j < height - i; ++j)
+            cout << ' ';
+        for (int j = height - i; j <= height + i; ++j)
+            cout << '*';
+        for (int j = height + i + 1; j < height * 2; ++j)
+            cout << ' ';
+        cout << endl;
+    }
+    for (int i = height - 2; i >= 0; --i) {
+        for (int j = height + i + 1; j < height * 2; j++)
+            cout << ' ';
+        for (int j = height - i; j <= height + i; j++)
+            cout << '*';
+        for (int j = 1; j < height - i; j++)
+            cout << ' ';
+        cout << endl;
+    }
+}
