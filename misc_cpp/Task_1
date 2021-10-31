@@ -1,3 +1,4 @@
+#include <iostream>
 int main(){
     unsigned char variable = 0;
     do {
