@@ -1,0 +1,19 @@
+#include <iostream>
+#include <clocale>
+int main(){
+    setlocale(LC_ALL, "");
+    std::cout << "Введите координаты точки через enter (х, затем у)" << std::endl;
+    int x, y;
+    int r, R;
+    std::cin >> x;
+    std::cin >> y;
+    std::cout << "Введите радиусы окружностей через enter (Радиус малой, затем большой)" << std::endl;
+    std::cin >> r;
+    std::cin >> R;
+    if (x * x + y * y > r * r and x * x + y * y < R * R) {
+        std::cout << "YES" << std::endl;
+    }
+    else {
+        std::cout << "NO" << std::endl;
+    }
+}
