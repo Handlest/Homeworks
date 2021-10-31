@@ -1,0 +1,16 @@
+#include <iostream>
+#include <clocale>
+int main() {
+    setlocale (LC_ALL, "");
+    int a, b, c;
+    float D;
+    std::cout << "Введите коэфициенты квадратного уравнения a, b и c";
+    std::cin >> a >> b >> c;
+    D = (b * b) - (4 * a * c);
+    if (D < 0)
+        std::cout << "Дискриминант меньше нуля. Корней нет";
+    if (D > 0)
+        std::cout << "Корни уравнения равны:\n x1 = " << (-b + sqrt(D)) / (2 * a) << "\n x2 = " << (-b - sqrt(D)) / (2 * a);
+    if (D == 0)
+        std::cout << "Дискриминант равен нулю. Корень уравнения:\n x = " << (-b / (2 * a));
+}
