@@ -1,0 +1,28 @@
+#include <iostream>
+int main()
+{
+    int counter = 0;
+    for (int i = 0; i < 100; ++i) 
+    {
+        ++counter;
+        if (counter % 3 == 0)
+        {
+            if (counter % 5 == 0)
+            {
+                std::cout << "FooBar" << std::endl;
+            }
+            else
+            {
+                std::cout << "Foo" << std::endl;
+            }
+        }
+        else if (counter % 5 == 0)
+            {
+                std::cout << "Bar" << std::endl;
+        }
+        else {
+            std::cout << counter << std::endl;
+        }
+    }
+    return 0;
+}
