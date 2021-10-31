@@ -1,1 +1,9 @@
-^^
+int main(){
+    unsigned char variable = 0;
+    do {
+        std::cout << (int)variable << std::endl;
+        ++variable;
+    } while (variable != 0);
+
+    return 0;
+}
