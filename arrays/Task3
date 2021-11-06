@@ -1,0 +1,47 @@
+#include <iostream>
+#include <vector>
+#include<string> 
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    std::string to_16(int);
+    std::string to_10(std::string);
+
+    int number_to_16;
+    std::string number_to_10;
+    std::cout << "Введите число в десятичной системе счисления\n"; std::cin >> number_to_16;
+    std::cout << "Число в шестнадцатеричной системе: " << to_16(number_to_16) << std::endl;
+    std::cout << "Введите число в шестнадцатеричной системе счисления\n"; std::cin >> number_to_10;
+    std::cout << "Число в десятичной системе счисления: " << std::endl;
+}
+
+std::string to_16(int num) {
+    std::vector<int> arr;
+    std::string answer;
+    while (num > 0) {
+        arr.push_back(num % 16);
+        num /= 16;
+    }
+    for (int i = arr.size() - 1; i >= 0; --i) {
+        if (arr[i] < 10) {
+            answer += std::to_string(arr[i]);
+        }
+        else {
+            answer += char(arr[i] + 55);
+        }
+    }
+    return answer;
+}
+
+
+//Требуется дописать функцию
+std::string to_10(std::string number){ 
+    int answer = 0;
+    for (int i = number.size() - 1; i >= 0 ; --i)
+    {
+        if ((int)number[i] < 10) {
+            answer += number[i] % 10;
+        }
+    }
+    return std::to_string(answer);
+}
