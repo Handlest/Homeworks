@@ -1,0 +1,17 @@
+#include <iostream>
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    int starttime[3];
+    int endtime[3];
+    std::cout << "Введите время начала временного промежутка(В пределах суток)\n" << "Сначала часы, затем минуты и секунды" << std::endl;
+    for (int i = 0; i < sizeof(endtime) / sizeof(endtime[0]); ++i) {
+        std::cin >> starttime[i];
+    }
+    std::cout << "Введите время конца временного промежутка" << std::endl;
+    for (int i = 0; i < sizeof(endtime) / sizeof(endtime[0]); ++i) {
+        std::cin >> endtime[i];
+    }
+    std::cout << "Разница во времени составила: " << std::abs(starttime[0] - endtime[0]) << ':' << std::abs(starttime[1] - endtime[1]) <<
+        ':' << std::abs(starttime[2] - endtime[2]);
+}
