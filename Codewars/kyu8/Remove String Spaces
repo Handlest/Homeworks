@@ -1,0 +1,6 @@
+std::string no_space(std::string x){
+  while (x.find(" ") != -1){
+    x.replace(x.find(" "), 1, "");
+  }
+  return x;
+}
