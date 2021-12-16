@@ -1,0 +1,11 @@
+#include <string>
+#include <set>
+bool is_isogram(std::string str) {
+  std::string unique;
+    for (int i = 0; i < str.size(); ++i) {
+        if (unique.find(tolower(str[i])) > str.length()) {
+            unique += tolower(str[i]);
+        }
+    }
+  return (unique.length() == str.length());
+}
