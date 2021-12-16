@@ -1,0 +1,18 @@
+#include <string>
+std::string ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ", lwralphabet = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz";
+std::string rot13(std::string msg)
+{
+  std::string result = "";
+  for(unsigned long i = 0; i < msg.length(); ++i){
+    if (ALPHABET.find(msg[i]) != std::string::npos){
+      result += ALPHABET[ALPHABET.find(msg[i]) + 13];
+    }
+    else if (lwralphabet.find(msg[i]) != std::string::npos){
+      result += lwralphabet[lwralphabet.find(msg[i]) + 13];
+    }
+    else{
+      result += msg[i];
+    }
+  }
+  return result;
+}
