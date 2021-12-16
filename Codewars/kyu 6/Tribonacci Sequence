@@ -1,0 +1,18 @@
+std::vector<int> tribonacci(std::vector<int> signature, int n)
+{
+    std::vector<int> result;
+    if (n >= 3){
+      result = signature;
+      for(int i = 3; i < n; ++i){
+          result.push_back(result[i - 3] + result[i - 2] + result[i - 1]);
+      }
+  }
+    else if(n == 2){
+      result.push_back(signature[0]);
+      result.push_back(signature[1]);
+    }
+    else if(n == 1){
+      result.push_back(signature[0]);
+    }
+    return result;
+}
