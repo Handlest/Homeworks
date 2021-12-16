@@ -1,0 +1,12 @@
+std::string get_middle(std::string input) 
+{
+  std::string answ;
+  if(input.length() % 2 == 0){
+    answ += input[input.length() / 2 - 1];
+    answ += input[input.length() / 2];
+  }
+  else{
+    answ += input[input.length() / 2];
+  }
+  return answ;
+}
