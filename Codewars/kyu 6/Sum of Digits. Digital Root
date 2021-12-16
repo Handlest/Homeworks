@@ -1,0 +1,16 @@
+int digital_root(int n){
+  int temp = 0;
+  while(true){
+        while (n > 0) {
+            temp += n % 10;
+            n /= 10;
+        }
+        if (temp < 10)
+            return temp;
+        else {
+            n = temp;
+            temp = 0;
+        }
+
+    }
+}
