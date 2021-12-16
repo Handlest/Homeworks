@@ -1,0 +1,15 @@
+#include <string>
+#include <algorithm> 
+std::string duplicate_encoder(const std::string& word){
+  std::string str, workline = word;
+  std::transform(workline.begin(), workline.end(), workline.begin(), ::tolower);
+  for(unsigned long i = 0; i < workline.size(); ++i){
+    if (count(workline.begin(), workline.end(), workline[i]) > 1){
+      str += ")";
+    }
+    else{
+      str += "(";
+    }
+  }
+  return str;
+}
