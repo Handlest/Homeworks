@@ -1,0 +1,11 @@
+#include <vector>
+using namespace std;
+vector<vector<int>> multiplication_table(int n){
+  vector<vector<int>> matrix_of_multiplication(n);
+  for(int i = 0; i < n; ++i){
+    for(int q = 1; q < n + 1; ++q){
+      matrix_of_multiplication[i].push_back((i+1) * q);
+    }
+  }
+  return matrix_of_multiplication;
+}
