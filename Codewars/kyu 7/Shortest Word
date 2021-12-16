@@ -1,0 +1,15 @@
+#include <string>
+int find_short(std::string str)
+{
+  int shortest = 99999999, counter = 0;
+  for(unsigned long i = 0; i < str.length(); ++i){
+    if(str[i] == ' ' or i == str.length() - 1){
+      shortest = i == str.length()-1 ? std::min(shortest, counter + 1) :std::min(shortest, counter);
+      counter = 0;
+    }
+    else{
+      ++counter;
+    }
+  }
+  return shortest;
+}
