@@ -1,0 +1,16 @@
+#include <string>
+#include <vector>
+int countSmileys(std::vector<std::string> arr)
+{
+  int counter = 0;
+  std::vector<std::string> goods = {":)", ":D", ":~D", ":~)",";)", ";D", ";~D", ";~)", ":-D", ":-)", ";-D", ";-)"};
+  for(unsigned long i = 0; i < arr.size(); ++i){
+    for(unsigned long q = 0; q < goods.size(); ++q){
+      if(arr[i] == goods[q]){
+        ++counter;
+        break;
+      }
+    }
+  }
+  return counter;
+}
