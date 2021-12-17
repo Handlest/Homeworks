@@ -1,0 +1,25 @@
+#include<iostream>
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    int tmp, n, arr[1000] = {};
+    std::cout << "Введите количество элементов массива" << std::endl; std::cin >> n;
+    std::cout << "Введите элементы массива" << std::endl;
+    for (int i = 1; i <= n; ++i) {
+        std::cin >> tmp;
+        arr[i] = tmp;
+    }
+    int r = arr[2] - arr[1];
+    bool flag = true;
+    for (int i = 1; i < n; ++i) {
+        if ((arr[i + 1] - arr[i]) != r) {
+            flag = false;
+            break;
+        }
+    }
+    if (flag)
+        std::cout << r;
+    else
+        std::cout << 0;
+    return 0;
+}
