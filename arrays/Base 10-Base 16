@@ -1,0 +1,58 @@
+#include <iostream>
+void to_16(int num);
+int to_10(char* number);
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    int result_to_10, number_10;
+    char result_to_16[128] = "";
+    char number_16[128] = "";
+
+    std::cout << "Введите число в десятичной системе счисления\n"; std::cin >> number_10;
+    std::cout << "Число в шестнадцатеричной системе: ";
+    to_16(number_10);
+    std::cout << "\nВведите число в шестнадцатеричной системе счисления\n"; std::cin >> number_16;
+    std::cout << "Число в десятичной системе счисления: " << to_10(number_16);
+
+    return 0;
+}
+
+void to_16(int num) {
+    char answer[128] = "";
+    int length = 0;
+    while (num != 0) {
+        length++;
+        if ((num % 16) < 10) {
+            answer[length] = '0' + num % 16;
+        }
+        else {
+            answer[length] = char((num % 16) + 55);
+        }
+        num /= 16;
+    }
+    for (int i = length; i >= 1; --i) {
+        std::cout << answer[i];
+    }
+}
+
+
+
+int to_10(char* number) {
+    int answer = 0, curr_degree = 1, length = 0;
+
+    while (number[length] != '\0') 
+        length += 1;
+
+    for (int i = length - 1; i >= 0; --i)
+    {
+        if (number[i] >= 'A') {
+            answer += (number[i] - 55) * curr_degree;
+            curr_degree = curr_degree == 1 ? curr_degree + 15 : curr_degree * 16;
+        }
+        else {
+            answer += (number[i] - 48) * curr_degree;
+            curr_degree = curr_degree == 1 ? curr_degree + 15 : curr_degree * 16;
+        }
+    }
+    return answer;
+}
