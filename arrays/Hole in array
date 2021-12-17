@@ -1,0 +1,32 @@
+#include <iostream>
+#include <random>
+#include <ctime>
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    srand(time(NULL));
+    int n;
+    std::cout << "Введите размер массива (до 1000): "; std::cin >> n;
+    int index, tmp, sum_of_arr = 0, sum = 0;
+    int arr[1000] = {};
+    for (int i = 0; i < n; ++i){ // Fill an array
+        arr[i] = i;
+    }
+    for (int i = 0; i < n; ++i) { // Shuffle array
+        index = rand() % n;
+        tmp = arr[i];
+        arr[i] = arr[index];
+        arr[index] = tmp;
+    }
+    arr[3] = 0; // Remove random, third element
+    for (int i = 0; i < n; i++)
+        sum_of_arr += arr[i];
+    for (int i = 0; i < n; i++)
+        sum += i;
+
+    for (int i = 0; i < n; i++){ // Show array
+        std::cout << arr[i] << " ";
+    }
+    std::cout << "Ответ: " <<sum - sum_of_arr << std::endl;
+    return 0;
+}
