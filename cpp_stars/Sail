@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cmath>
+
+//Зададим уравнения для прямых и проверим, выполняется ли одно из 4 условий
+bool first(double x, double y) {
+    return (x >= 0 and y >= 0 and y <= -2 * (x - 1));
+}
+
+bool second(double x, double y) {
+    return (x <= 0 and y >= 0 and y <= 2 * (x + 1));
+}
+
+bool third(double x, double y) {
+    return (x <= 0 and y <= 0 and y >= -sqrt(1 - pow((x + 1),2)));
+}
+
+bool fourth(double x, double y) {
+    return (x >= 0 and y <= 0 and y >= -sqrt(1 - pow((x - 1),2)));
+}
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    double x, y;
+    std::cout << "Введите x и y: ";
+    std::cin >> x >> y;
+    if (first(x, y) or second(x, y) or third(x, y) or fourth(x, y))
+        std::cout << "Есть попадание\n";
+    else
+        std::cout << "Не попал\n";
+}
