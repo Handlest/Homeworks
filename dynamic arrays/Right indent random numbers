@@ -1,0 +1,64 @@
+#include <iostream>
+#include<string>
+std::string toright(int number, int spaces) {
+    std::string result = std::to_string(number);
+    int indent = 0;
+    while(number > 0){
+        ++indent;
+        number /= 10;
+    }
+
+    for (int i = 0; i < spaces - indent; ++i)
+        result = " " + result;
+
+    return result;
+}
+
+void fill_matrix(int n, int  m) {
+
+    int** x = new int* [m];
+    int* spaces = new int[m];
+
+    for (int i = 0; i < m; ++i) {
+        x[i] = new int[n];
+        int max = 0;
+
+        for (int j = 0; j < n; ++j) {
+            x[i][j] = rand() % 100000;
+
+            if (x[i][j] > max)
+                max = x[i][j];
+        }
+
+        int indent = 0;
+
+        while(max > 0){
+            ++indent;
+            max /= 10;
+        }
+
+        spaces[i] = indent;
+    }
+
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            std::cout << toright(x[j][i], spaces[j]) << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    for (int i = 0; i < m; ++i) {
+        delete[] x[i];
+    }
+
+    delete[] x;
+}
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    std::cout << "Введите количество строк и столбцов матрицы: ";
+    int rows, cols;
+    std::cin >> rows >> cols;
+    fill_matrix(rows, cols);
+    return 0;
+}
