@@ -1,0 +1,17 @@
+#include <iostream>
+int main() {
+    setlocale(LC_ALL, "ru");
+    float x = 0, eps;
+    float rez = 0, counter = 1, first_x;
+    std::cout << "Введите х от -1 до 1" << std::endl;
+    std::cin >> x; first_x = x;
+    std::cout << "Введите значение eps" << std::endl;
+    std::cin >> eps;
+    while (counter > eps){
+        rez += counter;
+        counter *= x;
+    }
+    std::cout << "Результат работы программы: " << rez << std::endl;
+    std::cout << "Вычисленное значение по формуле 1/(1-x) равно " << 1. / (1. - first_x) << "\n" << "Разница в значениях составляет " << abs(rez - (1. / (1. - first_x))) << std::endl;
+    return 0;
+}
