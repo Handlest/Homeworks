@@ -1,0 +1,14 @@
+#include <iostream>
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    int sum = 0, avg = 1, n;
+    std::cout << "Введите число: " << std::endl; std::cin >> n;
+    while (n > 0) {
+        sum += n % 10;
+        avg *= n % 10;
+        n /= 10;
+    }
+    std::cout << "Сумма цифр введенного числа: " << sum << '\t' << "Произведение цифр: " << avg;
+    return 0;
+}
