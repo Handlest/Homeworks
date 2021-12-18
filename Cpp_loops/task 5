@@ -1,0 +1,23 @@
+#include <iostream>
+
+int main() {
+    double eps, dx, xmin, xmax;
+
+    std::cout << "Enter 'eps': "; std::cin >> eps;
+    std::cout << "Enter 'dx': "; std::cin >> dx;
+    std::cout << "Enter 'xmax': "; std::cin >> xmax;
+    std::cout << "Enter 'xmin': "; std::cin >> xmin;
+    while (xmin <= xmax){
+        double sum = 0;
+        double curr = xmin;
+        int a = 1;
+        while (std::abs(curr) > eps){
+            sum += curr;
+            a += 2;
+            curr = -curr * xmin * xmin / (a * (a - 1));
+        }
+        std::cout << "x = " << xmin << ", sum f(x) = " << sum << ", sin = " << sin(xmin) << "\n";
+        xmin += dx;
+    }
+    return 0;
+}
