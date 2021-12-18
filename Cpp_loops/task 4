@@ -1,0 +1,18 @@
+#include <iostream>
+
+int main()
+{
+    int n = 0;
+    double eps, s = 0, sign = 1.;
+    std::cout << "Enter eps(accuracy): ";
+    std::cin >> eps;
+
+    while ((1 / (n * 2. + 1)) > eps)
+    {
+        s += sign / (n * 2. + 1);
+        sign = -sign;
+        n += 1;
+    }
+    std::cout << "pi=" << 4. * s << std::endl;
+    return 0;
+}
