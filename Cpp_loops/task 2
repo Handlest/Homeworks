@@ -1,0 +1,15 @@
+#include<iostream> 
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    int num;
+    float sum = 0, devisior = 2;
+    std::cout << "Введите число n = " << std::endl; std::cin >> num;
+    for (int i = 1; i <= num; i++){
+        sum += i == 1? 1. / i : 1. / devisior;
+        devisior *= i == 1 ? 1 : 2;
+    }
+    std::cout << "Ответ: " << sum << std::endl;
+
+    return 0;
+}
