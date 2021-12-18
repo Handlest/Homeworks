@@ -1,0 +1,39 @@
+#include<iostream>
+void SnakeArray(int** M, int n, bool d) {
+    int k = 1;
+    for (int i = 0; i < n; ++i) {
+        if (i % 2 == d) {
+            for (int j = 0; j < n; ++j, ++k)
+                M[i][j] = k;
+        }
+        else {
+            for (int j = n - 1; j >= 0; --j, ++k)
+                M[i][j] = k;
+        }
+    }
+}
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    int n;
+    bool direction;
+    std::cout << "Введите n: = ";     std::cin >> n;
+    std::cout << "Введите направление заполнения ( 0 - вправо, 1 - влево): "; std::cin >> direction;
+
+    int** x = new int* [n];
+    for (int i = 0; i < n; ++i) 
+        x[i] = new int[n];
+
+    SnakeArray(x, n, direction);
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) 
+            std::cout << x[i][j] << " ";
+        std::cout << "\n";
+    }
+
+    for (int i = 0; i < n; ++i) 
+        delete[] x[i];
+
+    delete[] x;
+    return 0;
+}
