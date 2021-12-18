@@ -1,0 +1,29 @@
+#include<iostream>
+
+void shiftArray(int* M, int n, int k) {
+    for (int i = M[0]; i < n; ++i) {
+        if (i < k)
+            M[n - k + i] = i;
+        else
+            M[i - k] = i;
+    }
+}
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    std::cout << "Введите длину массива и необходимый сдвиг: " << std::endl;
+    int n, shift;
+    std::cin >> n >> shift;
+
+    int* arr = new int[n];
+    for (int i = 0; i < n; ++i) {
+        arr[i] = i;
+    }
+
+    shiftArray(arr, n, shift);
+    for (int i = 0; i < n; ++i) {
+        std::cout << arr[i] << " ";
+    }
+    delete[] arr;
+    return 0;
+}
