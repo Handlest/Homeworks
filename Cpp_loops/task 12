@@ -1,0 +1,33 @@
+#include <iostream>
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    int n, base, a = 1;
+    std::cout << "Введите число и основание системы через пробел: ";std::cin >> n >> base;
+
+    while (a <= n)
+        a *= base;
+
+    std::cout << "Число в системе счисления " << base << ": ";
+    while (a > 1)
+    {
+        a /= base;
+        int d = n / a;
+        if (d > 0) {
+            if (d < 10)
+            {
+                std::cout << d;
+            }
+            else {
+                std::cout << char(d + 55);
+            }
+            n %= a;
+
+        }
+        else
+            std::cout << "0";
+
+    }
+    std::cout << "\n";
+    return 0;
+}
