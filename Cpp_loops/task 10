@@ -1,0 +1,27 @@
+#include <iostream>
+
+void to_16(int num) {
+    char answer[128] = "";
+    int length = 0;
+    while (num != 0) {
+        length++;
+        if ((num % 16) < 10) {
+            answer[length] = '0' + num % 16;
+        }
+        else {
+            answer[length] = char((num % 16) + 55);
+        }
+        num /= 16;
+    }
+    for (int i = length; i >= 1; --i) {
+        std::cout << answer[i];
+    }
+}
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    int n;
+    std::cout << "Введите число в десятичной системе: "; std::cin >> n;
+    to_16(n);
+    return 0;
+}
