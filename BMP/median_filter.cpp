@@ -3,9 +3,9 @@
 #include <iostream>
 void insertionSort(int[], int);
 int main() {
-    int n = 3;
+    int n = 5;
     RgbImg img = readRgbImg("kidsnoise.bmp");
-    const char* out = "kids_median_filtered.bmp";
+    RgbImg output = createRgbImg(img.height, img.width);
     int half = n / 2;
     int* mas_r = new int[n * n];
     int* mas_g = new int[n * n];
@@ -26,9 +26,9 @@ int main() {
             insertionSort(mas_g, n * n);
             insertionSort(mas_b, n * n);
 
-            img.pixels[row][col].Red = mas_r[n * n / 2];
-            img.pixels[row][col].Green = mas_g[n * n / 2 ];
-            img.pixels[row][col].Blue = mas_b[n * n / 2];
+            output.pixels[row][col].Red = mas_r[n * n / 2];
+            output.pixels[row][col].Green = mas_g[n * n / 2 ];
+            output.pixels[row][col].Blue = mas_b[n * n / 2];
 
 
         }
@@ -36,7 +36,8 @@ int main() {
     delete[] mas_b;
     delete[] mas_r;
     delete[] mas_g;
-    writeRgbImg(out, img);
+    writeRgbImg("kids_median_filtered.bmp", output);
+    deleteRgbImg(output);
     deleteRgbImg(img);
     return 0;
 }
