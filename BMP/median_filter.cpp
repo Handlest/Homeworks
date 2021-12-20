@@ -18,9 +18,9 @@ int main() {
                 for (size_t j = 0; j < n; ++j)
                 {
                     size_t i_m = row + i - half, j_m = col - half + j;
-                    mas_r[i * 3 + j] = img.pixels[i_m][j_m].Red;
-                    mas_g[i * 3 + j] = img.pixels[i_m][j_m].Green;
-                    mas_b[i * 3 + j] = img.pixels[i_m][j_m].Blue;
+                    mas_r[i * n + j] = img.pixels[i_m][j_m].Red;
+                    mas_g[i * n + j] = img.pixels[i_m][j_m].Green;
+                    mas_b[i * n + j] = img.pixels[i_m][j_m].Blue;
                 }
             insertionSort(mas_r, n * n);
             insertionSort(mas_g, n * n);
