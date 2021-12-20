@@ -1,12 +1,14 @@
 #include<iostream>
-
 void shiftArray(int* M, int n, int k) {
-    for (int i = M[0]; i < n; ++i) {
-        if (i < k)
-            M[n - k + i] = i;
-        else
-            M[i - k] = i;
+    if (k > n) {
+        k = k % n;
     }
+    for (int i = n - k; i < n; i++){
+        std::cout << M[i] << " ";
+    }
+    for (int i = 0; i < n - k; i++){
+        std::cout << M[i] << " ";
+    } 
 }
 
 int main() {
@@ -16,14 +18,11 @@ int main() {
     std::cin >> n >> shift;
 
     int* arr = new int[n];
+    std::cout << "Введите элементы массива" << std::endl;
     for (int i = 0; i < n; ++i) {
-        arr[i] = i;
+        std::cin >> arr[i];
     }
-
     shiftArray(arr, n, shift);
-    for (int i = 0; i < n; ++i) {
-        std::cout << arr[i] << " ";
-    }
     delete[] arr;
     return 0;
 }
