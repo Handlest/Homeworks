@@ -9,10 +9,11 @@ int main() {
             {
                 int tmp;
                 tmp = img.pixels[col][row].Red;
-                recoloured.pixels[col][row].Blue = tmp;
                 recoloured.pixels[col][row].Red = img.pixels[col][row].Blue;
+                recoloured.pixels[col][row].Blue = tmp;
             }
         writeRgbImg("recoloured_rainbow.bmp", recoloured);
         deleteRgbImg(img);
+        deleteRgbImg(recoloured);
         return 0;
     }
